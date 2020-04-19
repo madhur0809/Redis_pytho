@@ -11,12 +11,15 @@ A working implementation of redis with some basic functionalities like
 1. get ( https://redis.io/commands/get )
 2. set ( https://redis.io/commands/set )
 3. expire ( https://redis.io/commands/expire )
-4. decr (https://redis.io/commands/decr)
-4. incr ( https://redis.io/commands/incr)
-5. decrby ( https://redis.io/commands/decrby)
-6. incrby ( https://redis.io/commands/incrby)
-7. getset ( https://redis.io/commands/getset)
-8. getrange ( https://redis.io/commands/getrange)
+4. zadd ( https://redis.io/commands/zadd )
+5. zrange ( https://redis.io/commands/zrange )
+6. zrank  ( https://redis.io/commands/zrank )
+7. decr ( https://redis.io/commands/decr )
+8. incr ( https://redis.io/commands/incr ) 
+9. decrby ( https://redis.io/commands/decrby )
+10. incrby ( https://redis.io/commands/incrby )
+11. getset ( https://redis.io/commands/getset )
+12. getrange ( https://redis.io/commands/getrange )
 
 
 ### Prerequisites
@@ -45,6 +48,18 @@ A lightweight wrapper around Python’s sqlite3 database with a simple, Pythonic
 
 =>eg. set saurabh 20
 
+## Formats of important functions
+
+1. expire(Value,expire start time ,time to live).
+
+Note- While using set() start time and time to live is -1 and using expire() start time is current time of system ,time to live is given as input.
+
+2. zadd(key,score,value)
+
+3. zrange(key,start,end)
+
+4. zrank(key,value)
+
 
 ## Further improvements that can be made to make it efficient
 
@@ -52,12 +67,18 @@ A lightweight wrapper around Python’s sqlite3 database with a simple, Pythonic
 
 => In zadd() it is possible to add or update a single member per call.Accepting multiple elements can be included.
 
-=>
+=> In zrange() WITHSCORES parameter will be added.
+
+=> To make persistent key value storage, SqliteDict is used.For more memory storage and to make more efficient ,database like            LevelDb can be used.
 
 
 ## Data Structres Used
 
-# Dictionary
+=> Dictionary: Dictionaries are used to map a key to its associated value, where value can be a string, hash, set, sorted set or list.
 
-# sorted set
+=> Sorted set: Sorted sets are used to maintain ordered elements in zadd().Sorted sets provides fast inserting, removing, or getting ranges from the the middle of the list.
+
+=> Tuple: Tuples are used to store score and member and they help in making sorted set of tuple.
+
+=> Strings: string is a good idea in all the obvious scenarios where you want to store an HTML page, but also when you want to avoid converting your already encoded data. So for instance, if you have JSON or MessagePack you may just store objects as strings.  Strings is used as random access vectors with GETRANGE and SETRANGE.
 
