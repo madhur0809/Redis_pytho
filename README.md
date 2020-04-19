@@ -28,7 +28,11 @@ Python
 
 SqliteDict : pip install -U sqlitedict
 
-A lightweight wrapper around Python’s sqlite3 database with a simple, Pythonic dict-like interface and support for multi-thread access:
+A lightweight wrapper around Python’s sqlite3 database with a simple, Pythonic dict-like interface and support for multi-thread access.
+
+SortedContainers : pip install sortedcontainers
+
+It is a collection of containers which allow us to insert and remove elements very efficiently while maintaining sorted order.
 
 ## Reason for Python chossing as language
 
@@ -82,3 +86,6 @@ Note- While using set() start time and time to live is -1 and using expire() sta
 
 => Strings: string is a good idea in all the obvious scenarios where you want to store an HTML page, but also when you want to avoid converting your already encoded data. So for instance, if you have JSON or MessagePack you may just store objects as strings.  Strings is used as random access vectors with GETRANGE and SETRANGE.
 
+## Threading
+
+This implementation of redis is single threaded and SqliteDict supports multi-thred access.
