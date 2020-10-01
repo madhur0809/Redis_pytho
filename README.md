@@ -85,3 +85,7 @@ Note- While using set() start time and time to live is -1 and using expire() sta
 => Tuple: Tuples are used to store score and member and they help in making sorted set of tuple.
 
 => Strings: string is a good idea in all the obvious scenarios where you want to store an HTML page, but also when you want to avoid converting your already encoded data. So for instance, if you have JSON or MessagePack you may just store objects as strings.  Strings is used as random access vectors with GETRANGE and SETRANGE.
+
+done with changes 
+need to make changes
+saurabh pandey
